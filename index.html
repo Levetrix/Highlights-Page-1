@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>BYUIS Highlights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/main.css" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.offcanvas.js"></script>
+	<script src="js/vendor/jquery-2.1.1.js"></script>
+	<script src="js/vendor/jquery-ui-1.11.0.js"></script>
+	<script src="js/foundation/foundation.js"></script>
+	<script src="js/foundation/foundation.offcanvas.js"></script>
+
+	<script src="js/fadein.js"></script>
+	
+    
+
+    <script type="text/javascript"> 
+    var init = function() {
+		  var T2card = $('.T2card'),
+		  	flippers = $('.flip');
+		  console.log("inited");
+		  for(var i=0;i<flippers.length;i++) {
+			  console.log("flipper i "+i);
+			  console.log(flippers[i]);
+			  $(flippers[i]).bind( 'click', function() {			  
+			    T2card.toggleClass('flipped');
+			    console.log("Function ran, classname changed");
+			  });
+		  }
+    };
+    $(document).ready(function(){init();});
+    
+    </script>
+    
+    <script type="text/javascript">
+    (function($){
+        var debug = false;
+        $(document).foundation();
+        $(document).ready(function () {
+            var closeMenuFunction = function() {
+                if($('.move-right').length > 0) {
+                    $('.off-canvas-wrap').foundation('offcanvas', 'toggle', 'move-right');
+                    $('.maincontent').unbind("click.menumain");
+                    if(debug) console.log("The menu should be closed/closing. The click handler has been removed from the .maincontent element.");
+                }
+            };
+            $('.left-small').bind("click.menu", function() {
+                if(debug) console.log("left-small clicked.");
+                //  Toggle the menu. This institutes the "current" state the user is requesting. (As in, it adds the class we're checking for later.)
+                $('.off-canvas-wrap').foundation('offcanvas', 'toggle', 'move-right');
+                //  Detect the existence of .move-right on the document. If it exists, then the menu is currently open.
+                if($('.move-right').length == 0) {
+                    //  The menu has been closed!
+                    if(debug) console.log("The menu has been closed!");
+                    $('.maincontent').unbind("click.menumain");
+                } else {
+                    //  The menu is open!
+                    if(debug) console.log("The menu is open!");
+                    $('.maincontent').bind("click.menumain", closeMenuFunction);
+                }
+            });
+        });
+    })(jQuery);
+    </script>
+</head>
+<body>
+
+<!-- OFF CANVAS SECTIONS WRAPPING THE MAIN CONTENT -->
+<div class="off-canvas-wrap">
+		<div class="inner-wrap">
+ 
+				<!-- OFF CANVAS MENU BAR -->
+				<nav class="tab-bar hide-for-large-up">
+ 
+						<section class="left-small">
+								<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+						</section>
+						<section class="right tab-bar-section">
+								<h1 class="mytitle"><img src="img/logoWhite1.png" class="logo" alt="BYUIS Logo"></h1>
+						</section>
+ 
+				</nav> <!-- END NAV.TAB-BAR HIDE-FOR-LARGE-UP -->
+
+				<!-- OFF CANVAS MENU -->
+				<aside class="left-off-canvas-menu">
+						<ul class="off-canvas-list">
+								
+								<li><a href="https://is.byu.edu/o2/index.cfm?event=public.login&redirect=/o2/index.cfm?event=person.currentRegistrations">Login</a></li>
+								<li><a href="http://is.byu.edu/site/courses/index.cfm">Course Catalog</a></li>
+								<li><a href="http://is.byu.edu/site/courses/order.cfm">Request Catalog</a></li>
+								<!--	<li><a href="http://is.byu.edu/site/support/studentsprogress.cfm">Check Student Progress</a></li> -->
+								<li><a href="http://is.byu.edu/site/financial/rewards.cfm">Rewards Program</a></li>
+								<li><a href="http://is.byu.edu/site/programs/purchase/index.cfm">Purchase Orders</a></li>
+								<li><a href="http://is.byu.edu/site/contactus/counselor_support.cfm">Contact State Representative</a></li>
+						</ul>
+				</aside>
+				
+				
+				<!--	Begin Main Content	-->
+				
+				
+				<div class="stripe one">
+					<div class="picturesContainer">
+						<div class="flags"></div>
+						<img class="banner" src="img/Banner.svg"; />						
+						<img class="ticket" src="img/Ticket.png"; />
+					
+					</div>
+					<img class="arrow" src="img/white-arrow.png">
+				</div>				
+				<div class="stripe two">
+					<img class="modest-tee" src="img/modest-tee.svg">
+					<img class="contest" src="img/contest.svg">
+					<img class="modest-tee-contest" src="img/modest-tee-contest.svg">
+					<h2>How It's Played</h2>
+					<div class="twoContainer">
+						<div class="listContainer">
+							<ul class="steps">
+								<li class="li1">Step One goes here</li>
+								<li class="li2">Step Two goes here, right?</li>
+								<li class="li3">Step Three possibly goes here</li>
+								<li class="li4">Step Four goes here. No, here.</li>
+							</ul>
+						</div>
+						<div class="graphicContainer">
+							<div class="graphic animatable">
+								<img class="shirt s1 comes fades" src="img/T-shirt.svg"; />
+							</div>
+							<div class="graphic animatable">
+								<img class="shirt s1 comes fades" src="img/T-shirt.svg"; />
+								<img class="shirt s2 comes fades" src="img/T-shirt.svg"; />
+							</div>
+							<div class="graphic animatable">
+								<img class="shirt s1 comes fades" src="img/T-shirt.svg"; />
+								<img class="shirt s2 comes fades" src="img/T-shirt.svg"; />
+								<img class="shirt s3 comes fades" src="img/T-shirt.svg"; />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="stripe three">
+					<h2>Registration</h2>
+					<div class="contactContainer">
+					<form name="topRow" id="contactForm">
+	                	<div class="contactQuarter">
+	                		<h4>Name:</h4>
+	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                	</div>
+	                	<div class="contactQuarter">
+	                 		<h4>Email:</h4>
+	                 		<input class="contactAreaQuarter" type="email" placeholder="kyle.jones@example.com" name="email" id="email" required >
+	                	</div>
+	                	<div class="contactQuarter">
+	                		<h4>University:</h4>
+	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                	</div>
+	                	<div class="contactQuarter">
+	                		<h4>Major:</h4>
+	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                	</div>    
+	                	<div class="contactQuarter">
+	                		<h4>Year:</h4>
+	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                	</div> 
+	                	<div class="contactQuarter">
+	                		<h4>Heat Time:</h4>
+	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                	</div>
+	                	<div class="enrollButton submitButton clickhere">
+	                       SUBMIT
+	                	</div>
+	                	<div id="form-submit"><!-- This is where the response from the form submission code will be placed after they submit. --></div>
+	                	<input type="hidden" id="form-id" name="form" value="High School Suite">
+	                	<input type="hidden" id="send_email_to_marketing-id" name="send-email-to-marketing" value="true">
+	             	</form>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				<!--	End Main Content -->
+		</div>
+</div>
+</body>
+</html>

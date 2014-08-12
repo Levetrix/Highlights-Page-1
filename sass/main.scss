@@ -1,0 +1,571 @@
+@CHARSET "ISO-8859-1";
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}
+
+@import "foundation/settings";
+@import "foundation/components/offcanvas";
+
+@import "compass/css3";
+@import "transform/settings";
+@import "transform/flip";
+
+@import "font-awesome";
+@import "font-awesome/variables";
+
+$green: #3c5346;
+$red: #872633;
+$yellow: #dfb655;
+$black: #272328;
+$purple: #2a1f26;
+$white: #f9f9f9;
+$blue: rgb(0,181,204);
+$charcoal: #323232;
+$teal: rgb(131,206,192);
+$teal-pale: rgba($teal, .6);
+
+$default-text-shadow-color: rgba(70,70,70,.5);
+$default-text-shadow-blur: 3px;
+$default-text-shadow-v-offset: 2px;
+$default-text-shadow-h-offset: 1px;
+
+$OpenSans: "OpenSans", "OpenSans_IE";
+$OpenSansLt: "OpenSansLt", OpenSansLt_IE;
+
+@font-face {
+    font-family: "OpenSans";
+    src: url(../fonts/OpenSans-regular.ttf);
+}
+
+@font-face {
+    font-family: "OpenSansLt";
+    src: url(../fonts/opensans-light-webfont.woff);
+}
+
+
+@font-face {
+    font-family: "OpenSansLtCn";
+    src: url(../fonts/OpenSans-CondLight.ttf);
+}
+
+@font-face{
+font-family: "OpenSans_IE";
+src: url(../fonts/opensans-regular-webfont.eot);
+}
+
+@font-face{
+font-family: "OpenSansLt_IE";
+src: url(../fonts/opensans-light-webfont.eot);
+}
+
+html,  body {
+	width:100%;
+	padding:0;
+	margin:0;
+}
+
+body {
+	font-family:$OpenSans;
+}
+
+input {
+	margin:0;
+	background-color:transparent;
+	@include input-placeholder {
+    	color:#777;
+    }
+}
+
+div {
+	padding:0;
+	margin:0;
+	border:0px;
+}
+
+h1, h2, h3, h4, {
+	font-size:1.4em;
+	font-family: $OpenSans;
+	font-weight:400;
+}
+
+.stripe {
+	text-align:center;
+	padding:2.5em 1em;
+}
+.one {
+	background-color:$teal-pale;
+	padding:0;
+	padding-bottom:2.5em;
+}
+
+.picturesContainer {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:105%;
+	margin-left:-2.5%;
+}
+
+.flags {
+	min-height:75px;
+	background-image:url("../img/Flags.svg");
+	background-size:cover;
+	background-position: 50% 80%;
+	background-repeat:no-repeat;
+}
+
+.banner {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width: inherit;  /* This makes the next two lines work in IE8. */
+ 	max-width: 100%; /* Add !important if needed. */
+  	height: auto; 
+}
+
+.ticket {
+	margin-bottom:2em;
+}
+
+.one > h3 {
+	color:#444;
+}
+
+.arrow {
+	display:block;
+	height:60px;
+	width:128px;
+	margin-top:2em;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.two {
+	background-color:$teal;
+}
+
+.modest-tee  {
+	display:block;
+	max-height:56px;
+	margin:0 auto;
+}
+
+.contest {
+	display:block;
+	max-height:50px;
+	margin:0 auto;
+
+}
+
+.modest-tee-contest {
+	display:none;
+}
+
+.two h2 {
+	font-family:$OpenSans;
+	font-size:1.8em;
+	color:white;
+	font-weight:900;
+	margin-top:8px;
+}
+
+.twocontainer {
+	display:block;
+	text-align:center;
+}
+
+.listContainer {
+	display:inline-block;
+	text-align:left;
+	vertical-align:top;
+	overflow:default;
+}
+
+.steps {
+	display:inline-block;
+	list-style-type:none;
+}
+
+.steps li {
+	font-size:1em;
+	margin:3em 0;
+	color:white;
+}
+
+.steps li:before {
+	display:inline-block;
+	height:28px;
+	width:28px;
+	border:3px white solid;
+	@include border-radius(14px);
+	text-align:center;
+	line-height:1.05em;
+	padding-top:3px;
+	margin-right:12px;
+	float:left;
+}
+
+.li1:before {
+	content:"1";	
+}
+
+.li2:before {
+	content:"2";	
+}
+
+.li3:before {
+	content:"3";	
+}
+
+.li4:before {
+	content:"4";	
+}
+
+
+
+/* Fly-in SCSS       */
+    
+.s1 {
+	&.comes-in {
+	    display: none;
+	    margin-top:24px;
+	    position: absolute;
+	    
+	    &.come-in {
+	        @include opacity(0);
+	        top: -100px;
+	        left: 0;
+	    }
+	
+	    &.come-in,&.come-in-faster {
+	        @include transition(transform);
+	        @include transition-timing-function(ease);
+	        @include transition-property(transform, opacity);
+	        @include transform(translateY(100px));
+	        @include opacity(1);
+	    }
+	    
+	    &.come-in {
+	        @include transition-duration(1s , .5s);
+	    }
+	}
+}
+.s1 {
+	&.fades {
+			@include transition(opacity);
+			@include transition-timing-function(ease);
+			@include transition-property(opacity);
+			@include transition-duration(3s);
+		&.faded-out {
+			@include opacity(0);
+		}
+		&.fade-in {
+			@include opacity(1);
+		}
+	}
+}
+
+.s2 {
+	&.comes-in {
+	    display: none;
+	    margin-top:24px;
+	    position: absolute;
+	    
+	    &.come-in {
+	        @include opacity(0);
+	        top: -100px;
+	        left: 0;
+	    }
+	
+	    &.come-in,&.come-in-faster {
+	        @include transition(transform);
+	        @include transition-timing-function(ease);
+	        @include transition-property(transform, opacity);
+	        @include transform(translateY(105px));
+	        @include opacity(1);
+	    }
+	    
+	    &.come-in {
+	        @include transition-duration(1s , .5s);
+	    }
+	}
+}
+.s2 {
+	&.fades {
+			@include transition(opacity);
+			@include transition-timing-function(ease);
+			@include transition-property(opacity);
+			@include transition-duration(3s);
+		&.faded-out {
+			@include opacity(0);
+		}
+		&.fade-in {
+			@include opacity(1);
+		}
+	}
+}
+	
+.s3 {
+	&.comes-in {
+	    display: none;
+	    margin-top:24px;
+	    position: absolute;
+	    
+	    &.come-in {
+	        @include opacity(0);
+	        top: -100px;
+	        left: 0;
+	    }
+	
+	    &.come-in,&.come-in-faster {
+	        @include transition(transform);
+	        @include transition-timing-function(ease);
+	        @include transition-property(transform, opacity);
+	        @include transform(translateY(110px));
+	        @include opacity(1);
+	    }
+	    
+	    &.come-in {
+	        @include transition-duration(1s , .5s);
+	    }
+	}
+}
+.s3 {
+	&.fades {
+			@include transition(opacity);
+			@include transition-timing-function(ease);
+			@include transition-property(opacity);
+			@include transition-duration(3s);
+		&.faded-out {
+			@include opacity(0);
+		}
+		&.fade-in {
+			@include opacity(1);
+		}
+	}
+}
+    /* END Fly-in SCSS   */
+
+
+
+.graphicContainer {
+	display:none;
+	min-width:150px;
+	min-height:300px;
+}
+
+.graphic {
+	position:relative;
+	min-height:65px;
+	min-width:50px;
+	margin:2em;
+	margin-top:1em;
+}
+
+.shirt {
+	display:block;
+	position:absolute;
+	left:0;
+	top:0;
+	min-width:95px;
+	min-height:83px;
+}
+
+.shirt.s1 {
+	display:block;
+	top:5px;	
+}
+
+.shirt.s2 {
+	display:block;
+	top:5px;	
+}
+
+.shirt.s3 {
+	display:block;
+	top:5px;
+}
+
+.three {
+	background-color:rgba($teal,.2);
+}
+
+.three h2 {
+	font-family:$OpenSans;
+	font-size:1.8em;
+	font-weight:400;
+	color:#444;
+	margin-bottom:32px;
+}
+
+.contactContainer {
+	margin-left:auto;
+	margin-right:auto;
+	max-width:1018px;
+}
+
+.contactQuarter {
+	display:inline-block;
+	text-align:left;
+	width:220px;
+	margin:12px 16px;
+}
+
+.contactQuarter h4{
+	margin:0;
+	margin-bottom:12px;	
+	line-height:.8em;
+	color:#444;
+}
+
+.contactAreaQuarter {
+	width:100%;
+	height:32px;
+	font-size:1em;
+	font-familiy:$OpenSansLt;
+	font-weight:200;
+	border:1px solid #888;
+}
+
+.contactAreaQuarter:focus {
+	border: $teal 1px solid;
+}
+
+.contactAreaQuarter:hover {
+	border: $teal 1px solid;
+}
+
+.submitButton {
+	display:block;
+	margin:0 auto;
+	max-width:110px;
+	padding-top:7px;
+	margin-top:12px;
+	box-sizing:border-box;
+	min-height:32px;
+	color:#333;
+	border:#999 1px solid;
+}
+
+.submitButton:focus {
+	border: $teal 1px solid;
+}
+
+.submitButton:hover {
+	border: $teal 1px solid;
+	color: $teal;
+	cursor:pointer;
+	
+}
+
+
+/*-----------------------------*/
+/*--------Media Queries--------*/
+/*-----------------------------*/
+
+
+@media (min-width:335px) {
+	.contest {
+		max-height:58px;
+	}
+}
+
+@media (min-width:557px) {
+	.contest{
+		display:none;
+	}
+	
+	.modest-tee {
+		display:none;
+	}
+	
+	.modest-tee-contest {
+		display:block;
+		margin:0 auto;
+	}
+	
+	.graphicContainer {
+		display:inline-block;
+	}
+	.modest-tee {
+		max-height:65px;
+	}
+}
+
+@media (min-width:615px) {
+	.banner {
+		width: auto;  
+	}
+}
+
+@media (min-width:715px) {
+	.flags {
+		min-height:150px;
+	}
+}
+
+
+@media (min-width:813px) {
+	.steps {
+		min-width:400px;
+	}
+	
+	.steps li {
+		font-size:1.2em;
+	}
+	
+	.steps li:before {
+		line-height:1.2em;
+		padding-top:2px;
+		height:32px;
+		width:32px;
+		@include border-radius(16px);
+		margin-bottom:15px;
+	}
+	
+	.graphicContainer {
+	
+	}
+	
+	.graphic {
+		min-height:85px;
+	}
+	
+	.shirt {
+		min-width:110px;
+		min-height:96px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
