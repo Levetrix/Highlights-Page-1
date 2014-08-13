@@ -39,7 +39,7 @@
     
     <script type="text/javascript">
     (function($){
-        var debug = false;
+        var debug = true;
         $(document).foundation();
         $(document).ready(function () {
             var closeMenuFunction = function() {
@@ -66,6 +66,7 @@
             });
         });
     })(jQuery);
+    
     </script>
 </head>
 <body>
@@ -88,16 +89,41 @@
 
 				<!-- OFF CANVAS MENU -->
 				<aside class="left-off-canvas-menu">
-						<ul class="off-canvas-list">
-								
-								<li><a href="https://is.byu.edu/o2/index.cfm?event=public.login&redirect=/o2/index.cfm?event=person.currentRegistrations">Login</a></li>
-								<li><a href="http://is.byu.edu/site/courses/index.cfm">Course Catalog</a></li>
-								<li><a href="http://is.byu.edu/site/courses/order.cfm">Request Catalog</a></li>
-								<!--	<li><a href="http://is.byu.edu/site/support/studentsprogress.cfm">Check Student Progress</a></li> -->
-								<li><a href="http://is.byu.edu/site/financial/rewards.cfm">Rewards Program</a></li>
-								<li><a href="http://is.byu.edu/site/programs/purchase/index.cfm">Purchase Orders</a></li>
-								<li><a href="http://is.byu.edu/site/contactus/counselor_support.cfm">Contact State Representative</a></li>
-						</ul>
+						   
+            <ul class="off-canvas-list">            
+                <li><label>Students</label></li>
+                <li><a href="https://is.byu.edu/o2/index.cfm?event=public.login&redirect=/o2/index.cfm?event=person.currentRegistrations">Login</a></li>
+                <li><a href="http://is.byu.edu/site/courses/index.cfm#university=on|high-school=false|middle-school=false|continuing-education=false|ig=on|online=on|paper=on">Add Class</a></li>
+            </ul>
+            <ul class="off-canvas-list">
+                <!-- <li class="has-dropdown"><a href="http://is.byu.edu">Menu List 1</a> -->
+                    <ul class="off-canvas-list">
+                        <li><a href="http://is.byu.edu/site/support/find-testing-center.cfm">Testing Centers</a></li>
+		                <li><a href="http://is.byu.edu/site/courses/ordertrans.cfm">Request Transcript</a></li>
+                        <li><a href="http://is.byu.edu/site/financial/scholarship.cfm">Scholarships</a></li>
+                        <li><a href="http://is.byu.edu/site/about/FAQ.cfm">FAQ</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="off-canvas-list">
+                <!--  <li><label>Educators</label></li>
+                    <ul class="off-canvas-list">
+		                <li><a href="http://is.byu.edu/site/courses/index.cfm">Course Catalog</a></li>
+                        <li><a href="http://is.byu.edu/site/support/studentsprogress.cfm">Check Student Progress</a></li>
+                        <li><a href="http://is.byu.edu/site/courses/order.cfm">Request Catalog</a></li>
+                        <li><a href="http://is.byu.edu/site/financial/rewards.cfm">Rewards Program</a></li>
+
+                </li>
+            </ul>               
+            <ul class="off-canvas-list">
+                <li><label>Parents</label></li>
+                    <ul class="off-canvas-list">
+                        <li><a href="http://is.byu.edu/site/about/what-is.cfm">About Us</a></li>
+                        <li><a href="http://is.byu.edu/site/programs/HighSchoolProgram.cfm">High School Programs</a></li>
+                        <li><a href="http://is.byu.edu/site/courses/index.cfm">Course Catalog</a></li>
+                        <li><a href="http://is.byu.edu/site/courses/tuition.cfm">Tuition</a></li>
+                    </ul>
+                </li> -->
 				</aside>
 				
 				
@@ -117,14 +143,15 @@
 					<img class="modest-tee" src="img/modest-tee.svg">
 					<img class="contest" src="img/contest.svg">
 					<img class="modest-tee-contest" src="img/modest-tee-contest.svg">
-					<h2>How It's Played</h2>
+					<h2>Win a Laptop</h2>
+					<h3>Here's How:</h3>
 					<div class="twoContainer">
 						<div class="listContainer">
 							<ul class="steps">
-								<li class="li1">Step One goes here</li>
-								<li class="li2">Step Two goes here, right?</li>
-								<li class="li3">Step Three possibly goes here</li>
-								<li class="li4">Step Four goes here. No, here.</li>
+								<li class="li1">Register for your heat below</li>
+								<li class="li2">Prepare for intensity and show up</li>
+								<li class="li3">Put on the most tee-shirts in 5 minutes</li>
+								<li class="li4">Grab your laptop and ace the semester</li>
 							</ul>
 						</div>
 						<div class="graphicContainer">
@@ -157,19 +184,32 @@
 	                	</div>
 	                	<div class="contactQuarter">
 	                		<h4>University:</h4>
-	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                		<input class="contactAreaQuarter" type="text" placeholder="BYU" name="university" id="university">
 	                	</div>
-	                	<div class="contactQuarter">
+	                	<div class="contactQuarter bottomRow">
 	                		<h4>Major:</h4>
-	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                		<input class="contactAreaQuarter" type="text" placeholder="Accounting" name="major" id="major" required >
 	                	</div>    
-	                	<div class="contactQuarter">
+	                	<div class="contactQuarter bottomRow">
 	                		<h4>Year:</h4>
-	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
-	                	</div> 
-	                	<div class="contactQuarter">
+	                		<div class="listBox">
+								<select name="heatTime">
+									<option value="Freshman">Freshman</option>
+									<option value="Sophomore">Sophomore</option>
+									<option value="Junior">Junior</option>
+									<option value="Senior +">Senior +</option>
+								</select>
+							</div>
+						</div> 
+	                	<div class="contactQuarter bottomRow">
 	                		<h4>Heat Time:</h4>
-	                		<input class="contactAreaQuarter" type="text" placeholder="Kyle Jones" name="name" id="name" required >
+	                		<div class="listBox">
+								<select name="heatTime">
+									<option value="11:00">11:00 AM</option>
+									<option value="12:00">12:00 PM</option>
+									<option value="1:00">1:00 PM</option>
+								</select>
+							  </div>
 	                	</div>
 	                	<div class="enrollButton submitButton clickhere">
 	                       SUBMIT

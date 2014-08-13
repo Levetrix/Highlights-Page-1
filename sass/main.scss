@@ -77,7 +77,7 @@ input {
 	margin:0;
 	background-color:transparent;
 	@include input-placeholder {
-    	color:#777;
+    	color:rgb(120,120,120);
     }
 }
 
@@ -168,10 +168,19 @@ h1, h2, h3, h4, {
 
 .two h2 {
 	font-family:$OpenSans;
-	font-size:1.8em;
+	font-size:1.9em;
 	color:white;
 	font-weight:900;
-	margin-top:8px;
+	margin-top:4px;
+}
+
+.two h3 {
+	display:none;
+	font-family:$OpenSans;
+	font-size:1.45em;
+	color:white;
+	font-weight:900;
+	margin-top:12px;
 }
 
 .twocontainer {
@@ -244,14 +253,14 @@ h1, h2, h3, h4, {
 	
 	    &.come-in,&.come-in-faster {
 	        @include transition(transform);
-	        @include transition-timing-function(ease);
+	        @include transition-timing-function(ease-in);
 	        @include transition-property(transform, opacity);
 	        @include transform(translateY(100px));
 	        @include opacity(1);
 	    }
 	    
 	    &.come-in {
-	        @include transition-duration(1s , .5s);
+	        @include transition-duration(.5s , .2s);
 	    }
 	}
 }
@@ -284,21 +293,22 @@ h1, h2, h3, h4, {
 	
 	    &.come-in,&.come-in-faster {
 	        @include transition(transform);
-	        @include transition-timing-function(ease);
+	        @include transition-timing-function(ease-in);
 	        @include transition-property(transform, opacity);
 	        @include transform(translateY(105px));
+	        @include transition-delay(.15s);
 	        @include opacity(1);
 	    }
 	    
 	    &.come-in {
-	        @include transition-duration(1s , .5s);
+	        @include transition-duration(.5s , .2s);
 	    }
 	}
 }
 .s2 {
 	&.fades {
 			@include transition(opacity);
-			@include transition-timing-function(ease);
+			@include transition-timing-function(ease-in);
 			@include transition-property(opacity);
 			@include transition-duration(3s);
 		&.faded-out {
@@ -324,14 +334,15 @@ h1, h2, h3, h4, {
 	
 	    &.come-in,&.come-in-faster {
 	        @include transition(transform);
-	        @include transition-timing-function(ease);
+	        @include transition-timing-function(ease-in);
 	        @include transition-property(transform, opacity);
 	        @include transform(translateY(110px));
+	        @include transition-delay(.3s);
 	        @include opacity(1);
 	    }
 	    
 	    &.come-in {
-	        @include transition-duration(1s , .5s);
+	        @include transition-duration(.5s , .2s);
 	    }
 	}
 }
@@ -364,7 +375,7 @@ h1, h2, h3, h4, {
 	min-height:65px;
 	min-width:50px;
 	margin:2em;
-	margin-top:1em;
+	margin-top:0em;
 }
 
 .shirt {
@@ -391,13 +402,30 @@ h1, h2, h3, h4, {
 	top:5px;
 }
 
+.graphic:nth-child(1) > .shirt {
+	min-width:95px;
+	min-height:83px;
+}
+
+.graphic:nth-child(2) > .shirt {
+	min-width:107px;
+	min-height:95px;
+	left:-6px
+}
+
+.graphic:nth-child(3) > .shirt {
+	min-width:116px;
+	min-height:100px;
+	left:-10px
+}
+
 .three {
 	background-color:rgba($teal,.2);
 }
 
 .three h2 {
 	font-family:$OpenSans;
-	font-size:1.8em;
+	font-size:1.9em;
 	font-weight:400;
 	color:#444;
 	margin-bottom:32px;
@@ -416,6 +444,9 @@ h1, h2, h3, h4, {
 	margin:12px 16px;
 }
 
+.listBoxy {
+}
+
 .contactQuarter h4{
 	margin:0;
 	margin-bottom:12px;	
@@ -430,6 +461,8 @@ h1, h2, h3, h4, {
 	font-familiy:$OpenSansLt;
 	font-weight:200;
 	border:1px solid #888;
+	vertical-align:bottom;
+	padding-left: 6px;
 }
 
 .contactAreaQuarter:focus {
@@ -440,6 +473,34 @@ h1, h2, h3, h4, {
 	border: $teal 1px solid;
 }
 
+.listBox {
+   display:inline-block;
+   background: url(../img/black-arrow.png) no-repeat;
+   background-size:20px 15px;
+   background-position: 98% 9px;
+   width: 220px;
+   height: 32px;
+   overflow: hidden;
+   border: 1px solid #888;
+}
+
+.listBox select{
+   background: transparent;
+   width: 245px;
+   padding: 2px;
+   padding-left: 2px;
+   font-size: 16px;
+   font-family:"OpenSansLt";
+   line-height: 1.2em;
+   border: 0;
+   border-radius: 0;
+   height: 32px;
+   color:#333;
+   -webkit-appearance: none;
+   z-index:10;
+}
+
+
 .submitButton {
 	display:block;
 	margin:0 auto;
@@ -449,7 +510,7 @@ h1, h2, h3, h4, {
 	box-sizing:border-box;
 	min-height:32px;
 	color:#333;
-	border:#999 1px solid;
+	border:#888 1px solid;
 }
 
 .submitButton:focus {
@@ -475,7 +536,7 @@ h1, h2, h3, h4, {
 	}
 }
 
-@media (min-width:557px) {
+@media (min-width:562px) {
 	.contest{
 		display:none;
 	}
@@ -487,6 +548,10 @@ h1, h2, h3, h4, {
 	.modest-tee-contest {
 		display:block;
 		margin:0 auto;
+	}
+	
+	.two h3 {
+		display:inline-block;
 	}
 	
 	.graphicContainer {
@@ -506,6 +571,10 @@ h1, h2, h3, h4, {
 @media (min-width:715px) {
 	.flags {
 		min-height:150px;
+	}
+	
+	.submitButton {
+		margin-top:24px;
 	}
 }
 
@@ -534,11 +603,36 @@ h1, h2, h3, h4, {
 	
 	.graphic {
 		min-height:85px;
+		margin-top:1em;
 	}
 	
 	.shirt {
 		min-width:110px;
 		min-height:96px;
+	}
+	
+	.bottomRow {
+		margin-bottom:0px;
+		vertical-align:bottom;
+	}
+	
+	.bottomRow > input {
+		margin-bottom:2px;
+	}
+}
+
+@media (min-width:1075px) {
+	.submitButton {
+		margin-top:32px;
+	}
+	
+	.contactQuarter {
+		margin-right:20px;
+		margin-left:20px;
+	}
+	
+	.bottomRow {
+		margin-top:20px;		
 	}
 }
 

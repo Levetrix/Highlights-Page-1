@@ -27,13 +27,13 @@
 
 var $win = $(window);
 var objectsAnimate = function() {
-	console.log("objectsAnimate function is running (scroll is tripping first domino)");
+	//console.log("objectsAnimate function is running (scroll is tripping first domino)");
 	var objects = $(".animate");
 	objects.each(function (i, el) {
 		var $el = $(el);
-		console.log("objects are getting the switch-class function attatched to them (second domino being tripped)");
+		//console.log("objects are getting the switch-class function attatched to them (second domino being tripped)");
 		if ($el.visible(true)) {
-			console.log("classes are being substituted third (and final domino being tripped)");
+			//console.log("classes are being substituted third (and final domino being tripped)");
 			$(this).find(".faded-out").addClass("fade-in").removeClass("faded-out");
 			$(this).find(".comes-in").addClass("come-in");
 		}
