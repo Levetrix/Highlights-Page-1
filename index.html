@@ -14,11 +14,28 @@
 	<script src="js/vendor/jquery-ui-1.11.0.js"></script>
 	<script src="js/foundation/foundation.js"></script>
 	<script src="js/foundation/foundation.offcanvas.js"></script>
+	<script type="text/javascript" src="//is.byu.edu/site/resources/lead_submit.js"></script>
+	<script src="js/jquery.smooth-scroll.js"></script>
 
 	<script src="js/fadein.js"></script>
 	
-    
-
+    <script type="text/javascript">
+		var debug = false;
+		attachForm("#contactForm",".clickhere", function( data, textStatus, jqXHR ){
+			if(debug){console.log("ajax connection done.")};
+			//	This is an example of a simple thing you could use to create a new element after your form. Placing a "placeholder" element provides you a natural way to move/place the response data where you want it. For flexibility of design, the way you've done it here is actually better. Therefore this is commented out.
+			//$('<div id="form-response">' + data.message + '</div>').insertAfter($("#contactForm"));
+			$("#form-submit").html('<img src="img/green-check-mark.png" class="form-success" />').addClass("form-success");
+		}, false, debug);	//	The last two parameters are optional and here are set to their default values. They govern an optional setting if you supply null for the handler function and rely on the default setting there, and the debug setting which needs to be true to include debug information in the console.
+	</script>
+	
+	<script>
+	$(document).ready(function(){
+		$('.jumpLink').smoothScroll();
+		console.log("Jumplink init");
+	});
+	</script>
+	
     <script type="text/javascript"> 
     var init = function() {
 		  var T2card = $('.T2card'),
@@ -137,7 +154,7 @@
 						<img class="ticket" src="img/Ticket.png"; />
 					
 					</div>
-					<img class="arrow" src="img/white-arrow.png">
+					<a class="jumpLink" href="#jump"><img class="arrow" src="img/white-arrow.png"></a>
 				</div>				
 				<div class="stripe two">
 					<img class="modest-tee" src="img/modest-tee.svg">
@@ -171,7 +188,7 @@
 					</div>
 				</div>
 				<div class="stripe three">
-					<h2>Registration</h2>
+					<h2 id="jump">Registration</h2>
 					<div class="contactContainer">
 					<form name="topRow" id="contactForm">
 	                	<div class="contactQuarter">
@@ -215,8 +232,8 @@
 	                       SUBMIT
 	                	</div>
 	                	<div id="form-submit"><!-- This is where the response from the form submission code will be placed after they submit. --></div>
-	                	<input type="hidden" id="form-id" name="form" value="High School Suite">
-	                	<input type="hidden" id="send_email_to_marketing-id" name="send-email-to-marketing" value="true">
+	                	<input type="hidden" id="form-id" name="form" value="Highlights Contest 1">
+	                	<input type="hidden" id="send_email_to_marketing-id" name="send-email-to-marketing" value="false">
 	             	</form>
 					</div>
 				</div>
